@@ -383,3 +383,35 @@ sudo dnf install -y net-tools bind-utils whois traceroute
 ---
 
 > This README provides practical examples — copy the commands into your terminal to try them out.
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+    char buff[17];
+    int pass = 0;
+
+    printf("Enter the password: ");
+    if (fgets(buff, sizeof buff, stdin) == NULL) {
+        fprintf(stderr, "Input error\n");
+        return 1;
+    }
+
+    /* remove trailing newline if present */
+    buff[strcspn(buff, "\n")] = '\0';
+
+    if (strcmp(buff, "thecorrectpaswd") == 0) {
+        puts("Correct Password");
+        pass = 1;
+    } else {
+        puts("Wrong Password");
+    }
+
+    if (pass) {
+        puts("Root privileges given to the user");
+        /* privileged actions go here */
+    }
+
+    return 0;
+}
