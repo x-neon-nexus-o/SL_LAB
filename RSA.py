@@ -32,21 +32,21 @@ def decrypt(cipher,d,n):
 
 
 
-if __name__=="__main__":
-  try:
-    p=int(input("Enter a prime number p: "))
-    q=int(input("Enter a diffferent prime number q: "))
-    e=int(input("Enter a public exponent e (coprime with phi_n): "))
+# if __name__=="__main__":
+ 
+p=int(input("Enter a prime number p: "))
+q=int(input("Enter a diffferent prime number q: "))
+e=int(input("Enter a public exponent e (coprime with phi_n): "))
 
-    (e,d,n)=generate_keys(p,q,e)
-    message=int(input("\n Enter a number message to encrypt(as integer):"))
+(e,d,n)=generate_keys(p,q,e)
+message=int(input("\n Enter a number message to encrypt(as integer):"))
 
-    cipher=encrypt(message,e,n)
-    print(f"Encrypted message: {cipher}")
+cipher=encrypt(message,e,n)
+print(f"Encrypted message: {cipher}")
 
-    decrypted=decrypt(cipher,d,n)
-    print(f"Decrypted message: {decrypted}")
+decrypted=decrypt(cipher,d,n)
+print(f"Decrypted message: {decrypted}")
 
 
-  except ValueError as ve:
-    print(f"Error: {ve}")
+#   except ValueError as ve:
+#     print(f"Error: {ve}")
